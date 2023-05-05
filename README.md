@@ -9,6 +9,10 @@ cd into frontend and run npm install and npm start
 
 steps
 open folder into IDE
+create .env file
+create a mongodb uri
+set mongoURI = your mongodb uri string
+
 cd backend
 npm install
 npm run dev
