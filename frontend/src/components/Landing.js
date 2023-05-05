@@ -57,15 +57,24 @@ const Landing = () => {
                 onBlur={() => setIsFocused(false)}
               />
             </div>
-            {data
-              .filter(
-                (data) =>
-                  searchTerm === "" ||
-                  data.lastName.toLowerCase().includes(searchTerm.toLowerCase())
-              )
-              .map((item) => (
-                <PhoneBook key={item._id} phone={item} loadData={loadData} />
-              ))}
+
+            {data.filter(
+              (data) =>
+                searchTerm === "" ||
+                data.lastName.toLowerCase().includes(searchTerm.toLowerCase())
+            ).length === 0 ? (
+              <h3 className="no-contacts">No contacts</h3>
+            ) : (
+              data
+                .filter(
+                  (data) =>
+                    searchTerm === "" ||
+                    data.lastName.toLowerCase().includes(searchTerm.toLowerCase())
+                )
+                .map((item) => (
+                  <PhoneBook key={item._id} phone={item} loadData={loadData} />
+                ))
+            )}
           </div>
         </div>
       )}
