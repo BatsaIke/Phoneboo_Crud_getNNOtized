@@ -66,7 +66,7 @@ const updatePhoneBook = async (req, res) => {
     const { id: phoneID } = req.params
     try {
         const phonebook = await PhoneBook.findOneAndUpdate({ _id: phoneID }, req.body, {
-            new: true,
+            new: true, 
           })
           if (!phonebook) {
             return res.status(500).send(`Error not Phonebook with id:${phoneID} exists`)
